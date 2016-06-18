@@ -1,0 +1,28 @@
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
+check.dependsOn 'checkstyle', 'pmd'
+
+task pmd(type: Pmd) {
+    ignoreFailures = true
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+task checkstyle(type: Checkstyle) {
+    ignoreFailures = true
+    configFile file("${project(':').projectDir}/config/checkstyle/checkstyle.xml")
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/packageName/**', '**/utils/MyFile.java'
+    classpath = files()
+}
+

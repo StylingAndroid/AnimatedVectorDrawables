@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:aapt="http://schemas.android.com/aapt"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:ignore="MissingPrefix">
+
+  <aapt:attr name="android:drawable">
+
+    <vector
+      android:viewportHeight="24"
+      android:viewportWidth="24"
+      android:width="240dp"
+      android:height="240dp">
+
+      <group
+        android:name="plus_group"
+        android:pivotX="12"
+        android:pivotY="12">
+
+        <path
+          android:name="plus_path"
+          android:strokeColor="?attr/colorPrimary"
+          android:strokeWidth="3"
+          android:pathData="M12,0L12,24M0,12,L24,12" />
+
+      </group>
+
+    </vector>
+
+  </aapt:attr>
+
+  <target
+    android:name="plus_group" >
+
+    <aapt:attr name="android:animation">
+
+      <objectAnimator
+        android:duration="1000"
+        android:propertyName="rotation"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse"
+        android:valueFrom="0"
+        android:valueTo="90"
+        android:valueType="floatType" />
+
+    </aapt:attr>
+
+  </target>
+
+  <target
+    android:name="plus_path" >
+
+
+    <aapt:attr name="android:animation">
+
+      <objectAnimator
+        android:duration="1000"
+        android:propertyName="pathData"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse"
+        android:valueFrom="M12,0L12,24M0,12,L24,12"
+        android:valueTo="M12,0L12,24M12,12,L12,12"
+        android:valueType="pathType" />
+
+    </aapt:attr>
+
+  </target>
+
+</animated-vector>

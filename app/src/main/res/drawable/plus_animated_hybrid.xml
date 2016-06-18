@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:aapt="http://schemas.android.com/aapt"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:drawable="@drawable/plus"
+  tools:ignore="MissingPrefix">
+
+  <target android:name="plus_group">
+
+    <aapt:attr name="android:animation">
+
+      <objectAnimator
+        android:duration="1000"
+        android:propertyName="rotation"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse"
+        android:valueFrom="0"
+        android:valueTo="90"
+        android:valueType="floatType" />
+
+    </aapt:attr>
+
+  </target>
+
+  <target
+    android:animation="@animator/plus_to_minus"
+    android:name="plus_path" />
+
+</animated-vector>
