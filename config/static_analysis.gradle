@@ -1,7 +1,8 @@
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
+apply plugin: 'findbugs'
 
-check.dependsOn 'checkstyle', 'pmd'
+check.dependsOn 'checkstyle', 'pmd', 'findbugs'
 
 task pmd(type: Pmd) {
     ignoreFailures = true
@@ -26,3 +27,11 @@ task checkstyle(type: Checkstyle) {
     classpath = files()
 }
 
+task findbugs(type: FindBugs, dependsOn: assembleDebug) {
+    ignoreFailures = true
+    classes = fileTree("$projectDir/build/intermediates/classes/debug/")
+    source = fileTree("$projectDir/src/main/java/")
+    classpath = files()
+    excludeFilter = file("${project(':').projectDir}/config/findbugs/excludeFilter.xml")
+    effort = 'max'
+}
